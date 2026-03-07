@@ -1206,6 +1206,9 @@
       color: rgba(167,243,208,0.55);
     }
 
+    .footer-copy a{
+       color: white;
+    }
     .social-links {
       display: flex;
       align-items: center;
