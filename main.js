@@ -10,10 +10,10 @@
   /* ==========================================
      Sticky Nav
   ========================================== */
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  // const nav = document.getElementById('mainNav');
+  // window.addEventListener('scroll', () => {
+  //   nav.classList.toggle('scrolled', window.scrollY > 60);
+  // });
 
   /* ==========================================
      Smooth Scroll for nav links
@@ -112,12 +112,25 @@
   });
 
   /* ==========================================
-     Back to Top
+     Back to Top and Sticky Header
   ========================================== */
+
+  const nav = document.getElementById('mainNav');
   const backBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    backBtn.classList.toggle('visible', window.scrollY > 400);
-  });
+  // window.addEventListener('scroll', () => {
+  //   backBtn.classList.toggle('visible', window.scrollY > 400);
+  // });
   backBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+      backBtn.classList.toggle('visible', window.scrollY > 400);
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
+});

@@ -11,7 +11,7 @@
       --pale: #ECFDF5;
       --pale-2: #f0fdf8;
       --white: #ffffff;
-      --glass-bg: rgba(255, 255, 255, 0.55);
+      --glass-bg: rgba(255, 255, 255, 0.737);
       --glass-border: rgba(255, 255, 255, 0.75);
       --glass-shadow: rgba(6, 78, 59, 0.1);
       --text-dark: #0d3027;
@@ -37,6 +37,7 @@
       background: var(--pale-2);
       color: var(--text-dark);
       overflow-x: hidden;
+      touch-action: pan-y;
     }
 
     h1, h2, h3, h4, h5 { font-family: var(--font-display); }
@@ -131,8 +132,6 @@
     .glass-card {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
       border-radius: var(--radius-card);
       box-shadow: 0 8px 40px var(--glass-shadow), 0 1px 0 rgba(255,255,255,0.8) inset;
       transition: transform var(--transition), box-shadow var(--transition);
@@ -228,24 +227,20 @@
 
     #mainNav.scrolled {
       background: rgba(236, 253, 245, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       box-shadow: 0 4px 24px rgba(6,78,59,0.08);
       padding: 10px 0;
     }
 
-    .nav-brand {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-      background: linear-gradient(135deg, var(--emerald), var(--forest));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
 
-    .nav-brand span { font-style: italic; }
+.nav-logo {
+  height: 34px;
+  width: auto;
+  display: block;
+}
 
     .nav-link-eco {
       font-family: var(--font-body);
@@ -277,7 +272,6 @@
       border-radius: 10px;
       padding: 6px 10px;
       background: var(--glass-bg);
-      backdrop-filter: blur(10px);
     }
 
     .hamburger-icon {
@@ -306,7 +300,6 @@
     @media (max-width: 991px) {
       .navbar-collapse {
         background: rgba(236,253,245,0.95);
-        backdrop-filter: blur(20px);
         border-radius: 16px;
         margin-top: 12px;
         padding: 16px 20px;
@@ -397,7 +390,6 @@
       gap: 8px;
       background: rgba(255,255,255,0.65);
       border: 1px solid rgba(16,185,129,0.3);
-      backdrop-filter: blur(12px);
       border-radius: 40px;
       padding: 8px 18px;
       font-size: 0.8rem;
@@ -483,6 +475,7 @@
       border-radius: 0;
       box-shadow: none;
       animation: floatSoap 5s ease-in-out infinite;
+      will-change: transform;
     }
 
     .hero-badge {
@@ -558,7 +551,6 @@
       position: absolute;
       bottom: 28px; left: -24px;
       background: var(--glass-bg);
-      backdrop-filter: blur(18px);
       border: 1px solid var(--glass-border);
       border-radius: 16px;
       padding: 16px 22px;
@@ -839,7 +831,6 @@
       position: fixed; inset: 0;
       z-index: 9998;
       background: rgba(6, 25, 18, 0.92);
-      backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: center;
       opacity: 0; visibility: hidden;
       transition: all 0.35s ease;
@@ -1108,7 +1099,6 @@
     .order-card {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
-      backdrop-filter: blur(20px);
       border-radius: 28px;
       padding: 56px 48px;
       box-shadow: 0 20px 60px rgba(6,78,59,0.12);
@@ -1207,7 +1197,7 @@
     }
 
     .footer-copy a{
-       color: white;
+      color: var(--mint);
     }
     .social-links {
       display: flex;
@@ -1276,6 +1266,7 @@
       .order-card h2 { font-size: 1.8rem; }
       .pricing-card { padding: 36px 24px; }
       .footer-inner { flex-direction: column; text-align: center; }
+      .bubble:nth-child(n+7) {display: none;}
     }
 
     @media (max-width: 575px) {
