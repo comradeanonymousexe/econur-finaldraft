@@ -306,6 +306,16 @@
         box-shadow: 0 10px 40px rgba(6,78,59,0.12);
         border: 1px solid var(--glass-border);
       }
+
+      .navbar-nav {
+  align-items: stretch !important;
+}
+
+.navbar-nav .btn-eco {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+}
     }
 
     /* ==========================================
